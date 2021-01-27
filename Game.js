@@ -73,7 +73,7 @@ display(){
         //text(allPlayers[plr].name,cars[index-1].x,cars[index-1].y+70)
         push()
         textAlign(CENTER)
-        //text(allPlayers[plr].name,cars[index-1].x,cars[index-1].y+70)
+        text(allPlayers[plr].name,cars[index-1].x,cars[index-1].y+70)
         pop()
     }
     if(allPlayers[plr].rank!==0) {
@@ -82,8 +82,13 @@ display(){
         pop()
         if(allPlayers[plr].rank===1&&gameState===2) {
             push()
+            console.log(allPlayers [plr].name)
             winner=allPlayers [plr].name
-            console.log("winner"+winner)
+            //console.log("winner"+winner)
+            stroke(13,13,13)
+            strokeWeight(4)
+            fill("yellow")
+            textSize(20)
             text("WINNER",cars[index-1].x+40,cars[index-1].y+50)
             pop();
         }
@@ -100,7 +105,7 @@ play() {
     }
     if(player.distance>5150&&player.ended===false) {
         carsAtEnd=carsAtEnd+1
-        console.log("yeet")
+        //console.log("yeet")
         player.updateRank(carsAtEnd)
         Player.updateCarsAtEnd(carsAtEnd)
         player.ended=true
@@ -115,9 +120,10 @@ play() {
 
 
 end() {
-console.log("playerWins" + winner)
+    
+//console.log("playerWins" + winner)
 //clear();
-text("YOU WON!!!",100,100)
+//text("YOU WON!!!",100,100)
 
 
 }

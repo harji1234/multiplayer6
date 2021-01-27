@@ -9,7 +9,8 @@ var car1Image,car2Image,car3Image,car4Image;
 var trackImage;
 var groundImage;
 var carsAtEnd=0;
-var winner
+var winner;
+var formImage;
 
 function preload () {
  car1Image=loadImage("car1.png")
@@ -18,10 +19,11 @@ function preload () {
  car4Image=loadImage("car4.png")
  trackImage=loadImage("track.jpg")
  groundImage=loadImage("ground.png")
+ formImage=loadImage("form.jpg")
 }
 
 function setup() {
-createCanvas(displayWidth-20,displayHeight-20);
+createCanvas(displayWidth,displayHeight);
 database = firebase.database();
 game = new Game()
 game.getState()
@@ -29,6 +31,7 @@ game.start()
 }
 
 function draw () {
+    background(formImage)
 if(playerCount===4&&carsAtEnd===0) {
     game.update(1)
 }
